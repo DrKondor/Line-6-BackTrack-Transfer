@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#Jesus Gawd this script is rough. Barely even functional at the mo. But I've got a session (lets be honest) so I'll throw it up on the Github and fix it later. 
+#Jesus Gawd this script is rough. Barely even functional at the mo. But it works! Anyway, I've got a session (lets be honest) so I'll throw it up on the Github and fix it later. 
 
 foldername=$(date +%Y%m%d)
 
