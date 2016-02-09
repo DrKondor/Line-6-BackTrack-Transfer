@@ -1,16 +1,42 @@
-#! /bin/bash
 
-#Jesus Gawd this script is rough. Barely even functional at the mo. But it works! Anyway, I've got a session (lets be honest) so I'll throw it up on the Github and fix it later. 
+#!/bin/sh
 
-#Update 8-12-2015 Something's changed in debian jessie and this script is no longer working. I had the wild, late night idea to create and use a symlink to do the syncup, but I'm unable to code in this half-sleep state.  
+# This script moves all files from your Line6 BackTrack to your computer.
+# Maybe invoke it with a udev rule once it's actually working and I find the time
 
-foldername=$(date +%Y%m%d)
+#New directory with today's date -- keeps the jams organized
+datestamp=$(date +%Y%m%d)
 
-read -p "Where do you want to save your tracks?" DIRECTORY
-cd $DIRECTORY
+# You can change the default directory in the following line:
+dir -p  $~/Music/BackTrack/"$foldername"/
 
-mkdir -p  $DIRECTORY/"$foldername"/
+# The script could use some serious error handling here . . . But we musicians live on the edge
+# 	Evantually I'd like to Checksum the data. Pre and post backup.
+# 	Grab a star rating -- first impressions / commit notes
+#	Also set off an encoder script to opus the data as well. 
+# 	Then create a CD iso when ~/Music/BackTrack/ achieves a set size -- cron job? 
 
-mv /media/BACKTRACK/MARKED "$DIRECTORY"/"$foldername"/
+#  Need to error check here  In case there's already another directory with the same date, etc. Commenting out for now.
+##
+### if [ -f ~/Music/Backtrack/ ]
+##then
+##    echo Moving files from BackTrack to $foldername
+##
+##else
+##echo Music Directory does not exist. Create it? 
+##
+### need a mkdir function here. 
+##
+##fi
+##
+##if [ -f ~/Music/Backtrack/"$foldername" ]
+##then
+##    echo Moving files from BackTrack to $foldername
+##fi
+## 
 
-mv /media/BACKTRACK/UNMARKED "$DIRECTORY"/"$foldername"/
+# Otherwise: Move the tracks!
+ mv /media/jaco/BACKTRACK/MARKED "~/Music/Backtrack/$foldername"/
+ mv /media/jaco/BACKTRACK/UNMARKED "~/Music/Backtrack/"$foldername"/
+
+exit
