@@ -18,7 +18,7 @@ dir -p  $~/Music/BackTrack/"$foldername"/
 
 #  Need to error check here  In case there's already another directory with the same date, etc. Commenting out for now.
 ##
-### if [ -f ~/Music/Backtrack/ ]
+### if [ -d ~/Music/Backtrack/ ]
 ##then
 ##    echo Moving files from BackTrack to $foldername
 ##
@@ -29,7 +29,7 @@ dir -p  $~/Music/BackTrack/"$foldername"/
 ##
 ##fi
 ##
-##if [ -f ~/Music/Backtrack/"$foldername" ]
+##if [ -d ~/Music/Backtrack/"$foldername" ]
 ##then
 ##    echo Moving files from BackTrack to $foldername
 ##fi
